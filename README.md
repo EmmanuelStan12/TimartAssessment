@@ -1,6 +1,6 @@
 # TimartAssessment on GraphQL, Sequelize and NodeJS
 
-This GraphQL endpoint provides functionality for managing user data, including user creation and retrieval.
+This GraphQL endpoint provides functionality for managing users data and there orders.
 
 ## User and Order Management with GraphQL and Sequelize
 
