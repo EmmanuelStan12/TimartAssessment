@@ -25,6 +25,9 @@ const userResolvers = {
                 throw new Error(`${error.message}`);
             }
         },
+    },
+    User: {
+        password: () => "HIDDEN"
     }
 }
 

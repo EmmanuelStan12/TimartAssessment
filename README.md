@@ -45,6 +45,7 @@ npm run start
 node ./src/app.js
 ```
 - Open any GraphQL playground of your choice and go to the Url specified in the console as to where the server is running, e.g `http://localhost:4000/graphql`
+- Once the server starts running, 1000 records are added to the User Table and 5000 records of Orders to the Order Table, but this wouldn't be done in subsequent server initializations.
 - Explore the capabilities of the endpoint.
 - A major concern for me is the task to grab the top ten users with the most orders placed, though it wasn't specified to create an endpoint for that, the function for getting it along
 with the query is in the `UserService.js` file in the directory `src/services` with a function named `getTopTenUsersByMostOrders`.
