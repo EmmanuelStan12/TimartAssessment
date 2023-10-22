@@ -11,6 +11,12 @@ async function startApolloServer() {
     await server.start();
     const app = express();
 
+    app.get('/', (req, res) => {
+        res.send("<h1>Hello, Welcome to Timart Assessment on NodeJS, GraphQL and Sequelize</h1>" +
+            "<p>Please Click on this link to continue</p>" +
+            "<a href='/graphql'>Continue</a>")
+    })
+
     server.applyMiddleware({app});
     const PORT = process.env.PORT || 4000;
 

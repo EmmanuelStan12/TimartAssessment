@@ -16,7 +16,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        getOrdersByUserId(userId: ID!): [Order]
+        getOrdersByUserId(userId: ID!, limit: Int, offset: Int): [Order]
     }
 
     type Mutation {

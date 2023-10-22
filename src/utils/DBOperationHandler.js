@@ -8,6 +8,8 @@ const db_operation_handler = async (operation) => {
             msg = `ValidationError: ${e.errors[0].path} ${e.errors[0].message}`
         } else if (e.name && e.name === 'SequelizeForeignKeyConstraintError') {
             msg = `${e.fields[0]} with ${e.value} does not exist in ${e.table} or does not exist as a Foreign Key Relationship`
+        } else if (e.message && e.message.contains('ECONNABORTED')) {
+            msg = `Sorry there was an error with the connection, Please try again later.`
         }
         console.error(msg);
         throw new Error(msg);

@@ -4,9 +4,12 @@ const moment = require("moment");
 
 const orderResolvers = {
     Query: {
-        getOrdersByUserId: async (_, { userId }) => {
+        getOrdersByUserId: async (_, { userId, limit, offset }) => {
             try {
-                return await getOrdersByUserId(userId);
+                if (!limit || !offset) {
+                    return await getOrdersByUserId(userId);
+                }
+                return await getOrdersByUserId(userId, limit, offset)
             } catch (error) {
                 throw new Error(`${error.message}`);
             }
