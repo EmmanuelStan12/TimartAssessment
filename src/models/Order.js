@@ -50,7 +50,8 @@ Order.init({
                 args: [['Pending', 'Shipped', 'Delivered']],
                 msg: " must be Pending, Shipped or Delivered"
             }
-        }
+        },
+        defaultValue: "Pending"
     },
     shippingAddress: {
         type: DataTypes.STRING,
