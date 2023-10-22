@@ -46,7 +46,10 @@ Order.init({
         allowNull: false,
         validate: {
             ...nonNullStringValidation,
-            isIn: [['Pending', 'Shipped', 'Delivered']]
+            isIn: {
+                args: [['Pending', 'Shipped', 'Delivered']],
+                msg: " must be Pending, Shipped or Delivered"
+            }
         }
     },
     shippingAddress: {
@@ -60,7 +63,11 @@ Order.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            ...nonNullStringValidation
+            ...nonNullStringValidation,
+            isIn: {
+                args: [['deposit', 'payment', 'invoice', 'withdrawal']],
+                msg: " must be deposit, payment, invoice or withdrawal"
+            }
         }
     },
     rating: {

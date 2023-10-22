@@ -27,7 +27,6 @@ const typeDefs = gql`
             productName: String!
             quantity: Int!
             totalPrice: Float!
-            orderDate: String!
             status: String!
             shippingAddress: String!
             paymentMethod: String!

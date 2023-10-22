@@ -1,5 +1,6 @@
 const {createOrder, getOrdersByUserId} = require("../../services/OrderService");
 const {getUserById} = require("../../services/UserService");
+const moment = require("moment");
 
 const orderResolvers = {
     Query: {
@@ -16,7 +17,11 @@ const orderResolvers = {
             try {
                 const userId = data.userId;
                 delete data.userId;
-                return await createOrder(userId, data);
+                const user = await getUserById(userId)
+                if (user !== null) {
+                    return await createOrder(userId, data);
+                }
+                throw new Error(`User with ${userId} does not exist`)
             } catch (error) {
                 throw new Error(`${error.message}`);
             }
@@ -26,6 +31,9 @@ const orderResolvers = {
         user: async (obj, args, context, info) => {
             const userId = obj.userId
             return await getUserById(userId)
+        },
+        orderDate: (obj, args, context, info) => {
+            return moment(obj.orderDate).format("dddd, MMMM Do YYYY, h:mm:ss a")
         }
     }
 };

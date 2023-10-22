@@ -7,18 +7,14 @@ UserModel.hasMany(OrderModel, { as: "orders", foreignKey: 'userId' });
 
 async function syncModels() {
     try {
-
+        await sequelize.sync()
         const { count, rows } = await UserModel.findAndCountAll();
         if (count === 0 && rows.length === 0) {
-            await sequelize.sync({ force: true });
-
             const fakeUsers = createFakeUsers();
             const users = await UserModel.bulkCreate(fakeUsers);
             const userIds = users.map(user => user.id);
             const fakeOrders = createFakeOrders(userIds);
             await OrderModel.bulkCreate(fakeOrders);
-        } else {
-            await sequelize.sync()
         }
 
         console.log('All models were synchronized successfully.');

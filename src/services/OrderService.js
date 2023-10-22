@@ -17,7 +17,7 @@ const getOrdersByUserId = async (userId, limit, offset) => {
 const createOrder = async (userId, rest) => {
     return await db_operation_handler(
         Order.create({
-            user_id: userId,
+            userId: userId,
             ...rest
         })
     )
