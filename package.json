@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --trace-warnings ./src/app.js",
+    "start": "node ./src/app.js",
     "dev": "nodemon ./src/app.js"
   },
   "dependencies": {
@@ -13,7 +13,6 @@
     "faker": "^5.5.3",
     "graphql": "^16.8.1",
     "moment": "^2.29.4",
-    "morgan": "~1.9.1",
     "mysql2": "^3.6.2",
     "sequelize": "^6.33.0"
   },
