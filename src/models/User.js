@@ -13,7 +13,10 @@ User.init({
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: {
+            args: true,
+            msg: 'already exists'
+        },
         validate: {
             ...nonNullStringValidation
         }
@@ -21,9 +24,15 @@ User.init({
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: {
+            args: true,
+            msg: 'already exists'
+        },
         validate: {
-            isEmail: true
+            isEmail: {
+                args: true,
+                msg: 'must be a valid email address, example: johndoe@mail.com'
+            }
         }
     },
     password: {
@@ -49,7 +58,10 @@ User.init({
     birthdate: {
         type: DataTypes.DATE,
         validate: {
-            isDate: true
+            isDate: {
+                args: true,
+                msg: 'is not a valid date'
+            }
         }
     },
     gender: {
