@@ -10,14 +10,15 @@ The documentation provides detailed information about the API endpoints, usage i
 
 ### Usage
 
-You can send GraphQL requests to the designated endpoint with appropriate query and mutation operations along with necessary variables.
+You can send GraphQL requests to the designated endpoint in the documentation with appropriate query and mutation operations along with necessary variables.
 
-## Quick Start
+## Getting Started
 
 ### Prerequisites
 
 - Make sure you have NodeJS installed on your system. The version used on this project was `v18.18.2`. 
 - Although npm comes with NodeJS, do make sure you have npm installed also. The version used on this project was `v9.8.1`.
+- Ensure that you have an active instance of mysql running.
 - Create a file .env in the root directory, if it doesn't exist and insert the following information:
 ```bash
 - DB_USERNAME=your_username
@@ -51,4 +52,4 @@ with the query is in the `UserService.js` file in the directory `src/services` w
 - You can also view the hosted version [here](https://timart-assessment.onrender.com/graphql).
 
 ## Contributors
-- Amadiegwu Emmanuel
+- Amadiegwu Ndunuju Emmanuel
